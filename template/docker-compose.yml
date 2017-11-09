@@ -1,0 +1,21 @@
+version: '2.2'
+
+services:
+
+  nginx:
+    image: nginx:1-alpine
+    ports:
+      - {{ dockerNginx }}:9000
+    volumes:
+      - ./provision/nginx.conf:/etc/nginx/sites-available/default
+      - .:/app
+
+  node:
+    image: node:8
+    ports:
+      - {{ dockerNode }}:8080
+    restart: always
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: bash /app/provision/node_up.sh

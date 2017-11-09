@@ -50,7 +50,16 @@ exports.cssLoaders = function(options) {
     postcss: generateLoaders(),
     less: generateLoaders('less'),
     sass: generateLoaders('sass', { indentedSyntax: true }),
-    scss: generateLoaders('sass'),
+    scss: generateLoaders('sass', {
+      includePaths: [
+        {{#if_eq bootstrapConfig "3"}}
+        'node_modules/bootstrap-sass/assets/stylesheets',
+        {{/if_eq}}
+        {{#if_eq bootstrapConfig "4"}}
+        'node_modules/bootstrap/scss',
+        {{/if_eq}}
+      ],
+    }),
     stylus: generateLoaders('stylus'),
     styl: generateLoaders('stylus'),
   };

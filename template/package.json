@@ -17,7 +17,20 @@
     "lint": "eslint --ext .js,.vue src{{#unit}} test/unit/specs{{/unit}}{{#e2e}} test/e2e/specs{{/e2e}}"{{/lint}}
   },
   "dependencies": {
-    "vue": "^2.5.2"
+    "axios": "^0.17.0",
+    "axios-mock-adapter": "^1.9.0",
+    {{#if_eq bootstrapConfig "3"}}
+    "bootstrap-sass": "^3.3.7",
+    {{/if_eq}}
+    {{#if_eq bootstrapConfig "4"}}
+    "bootstrap": "^4.0.0-beta.2",
+    "bootstrap-vue": "^1.0.2",
+    {{/if_eq}}
+    "vee-validate": "^2.0.0-rc.19",
+    "vue": "^2.5.2",
+    "vue-router": "^3.0.1",
+    "vuex": "^3.0.0",
+    "vuex-router-sync": "^5.0.0"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",

@@ -7,12 +7,12 @@
 </template>
 
 <script>
-import HelloWorld from '@/components/HelloWorld'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+import HelloWorld from './components/HelloWorld'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
 export default {
-  name: 'app'{{#if_eq lintConfig "airbnb"}},
+  name: 'app'{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
   {{#if_eq build "runtime"}}
-  render: h => h(App){{#if_eq lintConfig "airbnb"}},{{/if_eq}}
+  render: h => h(this){{#if_eq lintConfig "airbnb"}},{{/if_eq}}
   {{/if_eq}}
   components: {
     HelloWorld{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
