@@ -1,32 +1,36 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <HelloWorld/>
-    <router-view></router-view>
-  </div>
+	<router-view></router-view>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+  import store from '@/store';
+  import { router } from './bootstrap';
 
-export default {
-  name: 'app'{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
-  {{#if_eq build "runtime"}}
-  render: h => h(this){{#if_eq lintConfig "airbnb"}},{{/if_eq}}
-  {{/if_eq}}
-  components: {
-    HelloWorld{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
-  }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
-}{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+  export default {
+    name: 'app',
+	{{#if_eq build "standalone"}}
+	render: h => h(this),
+    {{/if_eq}}
+
+    /**
+     * Load Vuex store into application
+     */
+    store,
+
+    /**
+     * Load routing into application
+     */
+    router,
+  };
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+	#app {
+	  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+	  -webkit-font-smoothing: antialiased;
+	  -moz-osx-font-smoothing: grayscale;
+	  text-align: center;
+	  color: #2c3e50;
+	  margin-top: 60px;
+	}
 </style>

@@ -1,5 +1,5 @@
 'use strict';
-const env = process.env.NODE_ENV === 'development'
+const env = process.env.NODE_ENV !== 'development'
     ? 'production'
     : process.env.NODE_ENV;
 const utils = require('./utils');

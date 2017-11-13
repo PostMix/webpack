@@ -3,7 +3,7 @@ require('./check-versions')();
 
 const config = require('../config');
 if (!process.env.NODE_ENV) {
-  process.env.NODE_ENV = JSON.parse(config.development.env.NODE_ENV)
+  process.env.NODE_ENV = JSON.parse(config.development.env.NODE_ENV);
 }
 
 const opn = require('opn');
@@ -13,7 +13,7 @@ const webpack = require('webpack');
 const proxyMiddleware = require('http-proxy-middleware');
 const webpackConfig = {{#if_or unit e2e}}(process.env.NODE_ENV === 'testing'
  || process.env.NODE_ENV === 'production') ? require('./webpack.production.conf') :
- {{/if_or}}require('./webpack.development.conf')
+ {{/if_or}}require('./webpack.development.conf');
 
 // default port where dev server listens for incoming traffic
 const port = process.env.PORT || config.development.port;

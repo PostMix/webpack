@@ -25,6 +25,7 @@ module.exports = {
       'vue$': 'vue/dist/vue.esm.js',
       {{/if_eq}}
       '@': resolve('src'),
+      'img': resolve('src/assets/img'),
     },
   },
   module: {
@@ -50,9 +51,9 @@ module.exports = {
         loader: 'babel-loader',
         include: [resolve('src'), resolve('test')],
       },
-        {
-          test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-              use: [
+      {
+        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+        use: [
           {
             loader: 'url-loader',
             options: {
@@ -88,7 +89,7 @@ module.exports = {
             },
           },
         ],
-        },
+      },
       {
         test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
         loader: 'url-loader',
